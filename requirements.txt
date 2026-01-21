@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchain-openai
+langchain-text-splitters
+chromadb
+faiss-cpu
+yfinance
+streamlit
+python-dotenv
+requests
+pypdf
