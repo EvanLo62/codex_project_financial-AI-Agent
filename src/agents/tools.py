@@ -3,12 +3,26 @@
 from dataclasses import dataclass
 from typing import Callable, List
 
+import yfinance as yf
+
 
 @dataclass
 class Tool:
     name: str
     description: str
     runner: Callable[..., str]
+
+
+def _summarize_market_data(ticker: str) -> str:
+    stock = yf.Ticker(ticker)
+    info = stock.info or {}
+    return (
+        "公司基本資訊："
+        f"名稱={info.get('shortName')}, "
+        f"產業={info.get('industry')}, "
+        f"市值={info.get('marketCap')}, "
+        f"本益比={info.get('trailingPE')}"
+    )
 
 
 def get_tools(retriever) -> List[Tool]:
@@ -21,6 +35,6 @@ def get_tools(retriever) -> List[Tool]:
         Tool(
             name="fetch_market_data",
             description="查詢公司近期股價與指標",
-            runner=lambda ticker: f"Stub: fetch market data for {ticker}",
+            runner=_summarize_market_data,
         ),
     ]

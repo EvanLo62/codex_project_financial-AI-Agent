@@ -53,7 +53,11 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-3. 啟動應用：
+並在 `.env` 中填入 `OPENAI_API_KEY`（向量化與分析需要）。
+
+3. 將財報 PDF 放入 `data/raw_pdfs/`。
+
+4. 啟動應用：
 
 ```bash
 streamlit run src/main.py

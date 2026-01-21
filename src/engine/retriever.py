@@ -3,9 +3,8 @@
 from typing import Callable, List, Dict
 
 
-def build_retriever(vector_db) -> Callable[[str], List[Dict[str, str]]]:
+def build_retriever(vector_db, k: int = 4) -> Callable[[str], List[Dict[str, str]]]:
     def retrieve(query: str) -> List[Dict[str, str]]:
-        documents = vector_db.search(query)
-        return documents
+        return vector_db.search(query, k=k)
 
     return retrieve
