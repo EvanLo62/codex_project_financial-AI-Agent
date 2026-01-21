@@ -1,0 +1,9 @@
+langchain
+langchain-community
+langchain-openai
+chromadb
+faiss-cpu
+yfinance
+streamlit
+python-dotenv
+requests
